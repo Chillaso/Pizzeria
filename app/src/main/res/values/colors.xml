@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorTexto">@android:color/black</color>
+    <color name="colorBotones">#d50000</color>
+    <color name="primary_material_light">#e53935</color>
+    <color name="barra">#ffcd90</color>
+</resources>

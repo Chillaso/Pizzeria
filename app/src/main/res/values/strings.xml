@@ -1,0 +1,70 @@
+<resources>
+    <string name="app_name">Pizzeria</string>
+    <string name="txtPizza">PIZZA A LA CARTA</string>
+    <string name="txtMenu">MENÚ DE PIZZAS</string>
+    <string name="txtRepetir">REPETIR PIZZA</string>
+    <string name="cambiarFondo">Cambiar fondo</string>
+    <string name="guardarPizza">Guardar última pizza comprada</string>
+    <string name="rdPequeña">Pequeña</string>
+    <string name="rdMediana">Mediana</string>
+    <string name="rdGrande">Grande</string>
+    <string name="txtElegirTam">Elige el tamaño</string>
+    <string name="continuar">Continuar</string>
+    <string name="txtMasa">Elegir masa</string>
+    <string name="txtIngredientes">Ingredientes</string>
+    <string name="pepperoni">Pepperoni</string>
+    <string name="quesos">4 Quesos</string>
+    <string name="quesocabra">Queso de cabra</string>
+    <string name="chorizo">Chorizo</string>
+    <string name="champi">Champiñones</string>
+    <string name="estaciones">4 Estaciones</string>
+    <string name="carne">Carne picada</string>
+    <string name="salchicha">Salchichas</string>
+    <string name="pimiento">Pimiento</string>
+    <string name="cebolla">Cebolla</string>
+    <string name="txtPrecio">Precio</string>
+    <string name="moneda">€</string>
+    <string name="btnConfirmar">Confirmar pedido</string>
+    <string name="btnVolver">Volver</string>
+    <string name="btnAñadir">Añadir pizza</string>
+    <string name="txtPizzas">Pizzas</string>
+    <string name="precioPizza">Precio Pizza</string>
+    <string name="precioTotal">Precio Total</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="pago">Pagar</string>
+    <string name="elegirPago">Elige un método de pago</string>
+    <string name="visa">Tarjeta</string>
+    <string name="Paypal">Paypal</string>
+    <string name="contrarembomsol">Contrarebolso</string>
+    <string-array name="masas">
+        <item>Fina</item>
+        <item>Normal</item>
+        <item>Extrem</item>
+    </string-array>
+    <string name="comprar">Comprar</string>
+    <string name="desPepperoni">
+        Pizza de pepperoni, con una masa tradicional que satisface las necesidades
+        de todo buen consumidor de pizzas. Amasada artesanalmente y cocinada en horno de
+        piedra de las mejores casas de Trivianni.
+    </string>
+    <string name="desQuesos">
+        Pizza de 4 quesos. Diseñada para los amantes de los sabores que nos aportan el queso de cabra,
+        parmesano, mozzarella y azul. Elaborada con una receta casera y refinada con un poco de orégano para
+        obtener la mejor explosión de sabores de una pizza.
+    </string>
+    <string name="desEstaciones">
+        Pizza con jamón de parna, queso mozzarella que hace irresistible el probar un poco de esta maravilla,
+        con champiñones cortados en láminas, aceitunas negras especialmente recogidas en las mejores fincas
+        andaluzas, salsa de tomate y cocinada posteriormente en los mejores hornos de casa Tarradellas.
+    </string>
+    <string name="seleccionarDireccion">Seleccionar Dirección de entrega</string>
+    <string name="notificacion">Pago completado de Pizzeria</string>
+    <string name="descriptionN">Se ha realizado un pago, en 30 minutos estará en casa.</string>
+    <string name="cargando">Cargando</string>
+    <string name="nombre">Nombre</string>
+    <string name="usuario">Usuario por defecto</string>
+    <string name="contraseña">Contraseña por defecto</string>
+    <string name="user">Usuario</string>
+    <string name="pass">Contraseña</string>
+    <string name="aceptar">Aceptar</string>
+</resources>

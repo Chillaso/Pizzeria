@@ -1,0 +1,9 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:colorAccent">@color/colorBotones</item>
+        <item name="android:statusBarColor">@color/barra</item>
+    </style>
+
+</resources>
