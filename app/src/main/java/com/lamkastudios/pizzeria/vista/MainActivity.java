@@ -1,4 +1,4 @@
-package com.lamkastudios.pizzeria;
+package com.lamkastudios.pizzeria.vista;
 
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import com.lamkastudios.pizzeria.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 

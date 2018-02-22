@@ -1,6 +1,4 @@
-package com.lamkastudios.pizzeria.POJOS;
-
-import com.lamkastudios.pizzeria.POJOS.Ingrediente;
+package com.lamkastudios.pizzeria.Modelo;
 
 import java.util.ArrayList;
 import java.util.Arrays;

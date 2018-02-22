@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lamkastudios.pizzeria.ActivityIngredientes">
+    tools:context="com.lamkastudios.pizzeria.vista.ActivityIngredientes">
 
     <ImageView
         android:id="@+id/fondo"

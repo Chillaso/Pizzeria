@@ -46,7 +46,7 @@
             android:value="AIzaSyBsVlYD-X_x8FkCfIWIOsQXijUC_JvPCB4"/>
 
         <!--APP NORMAL-->
-        <activity android:name=".MainActivity" android:screenOrientation="portrait">
+        <activity android:name=".vista.MainActivity" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,20 +54,20 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".ActivityPizza" android:screenOrientation="portrait"/>
-        <activity android:name=".ConfigActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".ActivityIngredientes" android:screenOrientation="portrait"/>
-        <activity android:name=".PedidoActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".PagoActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".vista.ActivityPizza" android:screenOrientation="portrait"/>
+        <activity android:name=".vista.ConfigActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".vista.ActivityIngredientes" android:screenOrientation="portrait"/>
+        <activity android:name=".vista.PedidoActivity" android:screenOrientation="portrait"/>
+        <activity android:name=".vista.PagoActivity" android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".MenuActivity"
-            android:parentActivityName=".MainActivity"
+            android:name=".vista.MenuActivity"
+            android:parentActivityName=".vista.MainActivity"
             android:theme="@style/AppTheme"
             android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.lamkastudios.pizzeria.MainActivity" />
+                android:value="com.lamkastudios.pizzeria.vista.MainActivity" />
         </activity>
     </application>
 

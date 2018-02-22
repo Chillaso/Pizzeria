@@ -1,12 +1,10 @@
-package com.lamkastudios.pizzeria
+package com.lamkastudios.pizzeria.vista
 
 import android.annotation.SuppressLint
 import android.app.*
 import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
-import android.location.Criteria
-import android.location.LocationManager
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.NotificationCompat
@@ -16,11 +14,11 @@ import android.widget.Toast
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
-import com.google.android.gms.maps.model.CameraPosition
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.lamkastudios.pizzeria.POJOS.Pedido
-import com.lamkastudios.pizzeria.POJOS.Pizza
+import com.lamkastudios.pizzeria.Modelo.Pedido
+import com.lamkastudios.pizzeria.Modelo.Pizza
+import com.lamkastudios.pizzeria.R
 import kotlinx.android.synthetic.main.activity_pago.*
 
 class PagoActivity : AppCompatActivity(), OnMapReadyCallback, Runnable{
@@ -90,7 +88,7 @@ class PagoActivity : AppCompatActivity(), OnMapReadyCallback, Runnable{
         Thread.sleep(5000)
         dialog.dismiss()
         NuevaNotificacion()
-        startActivity(Intent(this,MainActivity::class.java))
+        startActivity(Intent(this, MainActivity::class.java))
         finishAffinity()
     }
 

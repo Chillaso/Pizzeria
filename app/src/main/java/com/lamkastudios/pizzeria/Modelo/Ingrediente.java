@@ -1,4 +1,4 @@
-package com.lamkastudios.pizzeria.POJOS;
+package com.lamkastudios.pizzeria.Modelo;
 
 /**
  * Created by ardark on 11/7/17.

@@ -1,4 +1,4 @@
-package com.lamkastudios.pizzeria;
+package com.lamkastudios.pizzeria.vista;
 
 import android.content.Intent;
 import android.content.res.Resources;
@@ -14,9 +14,11 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.lamkastudios.pizzeria.POJOS.Ingrediente;
-import com.lamkastudios.pizzeria.POJOS.Pizza;
-import com.lamkastudios.pizzeria.POJOS.Pedido;
+import com.lamkastudios.pizzeria.Modelo.IncompatibilidadException;
+import com.lamkastudios.pizzeria.Modelo.Ingrediente;
+import com.lamkastudios.pizzeria.Modelo.Pizza;
+import com.lamkastudios.pizzeria.Modelo.Pedido;
+import com.lamkastudios.pizzeria.R;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ public class ActivityIngredientes extends AppCompatActivity implements View.OnCl
             R.id.chk4Quesos,
             R.id.chkSalchicha
     };
-    private static final com.lamkastudios.pizzeria.POJOS.Ingrediente[] ingredientes = new Ingrediente[]{
+    private static final com.lamkastudios.pizzeria.Modelo.Ingrediente[] ingredientes = new Ingrediente[]{
             new Ingrediente("Cebolla",1),
             new Ingrediente("Carne",1.2),
             new Ingrediente("Chorizo",0.5),

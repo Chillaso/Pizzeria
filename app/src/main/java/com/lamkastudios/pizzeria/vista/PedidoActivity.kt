@@ -1,4 +1,4 @@
-package com.lamkastudios.pizzeria
+package com.lamkastudios.pizzeria.vista
 
 import android.content.Intent
 import android.os.Bundle
@@ -6,11 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.ListAdapter
-import android.widget.Toast
-import com.lamkastudios.pizzeria.POJOS.Ingrediente
-import com.lamkastudios.pizzeria.POJOS.Pedido
-import com.lamkastudios.pizzeria.POJOS.Pizza
+import com.lamkastudios.pizzeria.Modelo.Ingrediente
+import com.lamkastudios.pizzeria.Modelo.Pedido
+import com.lamkastudios.pizzeria.Modelo.Pizza
+import com.lamkastudios.pizzeria.R
 import kotlinx.android.synthetic.main.activity_pedido.*
 
 class PedidoActivity : AppCompatActivity(), AdapterView.OnItemClickListener{
@@ -43,7 +42,7 @@ class PedidoActivity : AppCompatActivity(), AdapterView.OnItemClickListener{
         btnCancelar.setOnClickListener({
             //Reiniciamos
             Pedido.pizzas.removeAll(Pedido.pizzas)
-            startActivity(Intent(this,MainActivity::class.java))})
+            startActivity(Intent(this, MainActivity::class.java))})
 
         listaPizzas.onItemClickListener=this
     }
@@ -77,7 +76,7 @@ class PedidoActivity : AppCompatActivity(), AdapterView.OnItemClickListener{
             nombre.add(pizza.name)
             calc+=pizza.precio
         }
-        val adapter: ArrayAdapter<String> = ArrayAdapter<String>(this,R.layout.texto_spinner,nombre)
+        val adapter: ArrayAdapter<String> = ArrayAdapter<String>(this, R.layout.texto_spinner,nombre)
         listaPizzas.adapter= adapter
 
         //PRECIO TOTAL

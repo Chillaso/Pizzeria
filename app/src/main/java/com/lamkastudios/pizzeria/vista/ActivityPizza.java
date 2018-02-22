@@ -1,4 +1,4 @@
-package com.lamkastudios.pizzeria;
+package com.lamkastudios.pizzeria.vista;
 
 import android.content.Intent;
 import android.support.design.widget.Snackbar;
@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.lamkastudios.pizzeria.R;
 
 public class ActivityPizza extends AppCompatActivity implements View.OnClickListener{
 
