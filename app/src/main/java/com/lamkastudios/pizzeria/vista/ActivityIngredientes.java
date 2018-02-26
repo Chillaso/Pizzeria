@@ -17,11 +17,14 @@ import android.widget.Toast;
 import com.lamkastudios.pizzeria.Modelo.IncompatibilidadException;
 import com.lamkastudios.pizzeria.Modelo.Ingrediente;
 import com.lamkastudios.pizzeria.Modelo.Pizza;
-import com.lamkastudios.pizzeria.Modelo.Pedido;
+import com.lamkastudios.pizzeria.Modelo.PedidoInter;
 import com.lamkastudios.pizzeria.R;
 
+import java.lang.reflect.Array;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+
+import io.realm.RealmList;
 
 public class ActivityIngredientes extends AppCompatActivity implements View.OnClickListener{
 
@@ -43,23 +46,13 @@ public class ActivityIngredientes extends AppCompatActivity implements View.OnCl
             R.id.chk4Quesos,
             R.id.chkSalchicha
     };
-    private static final com.lamkastudios.pizzeria.Modelo.Ingrediente[] ingredientes = new Ingrediente[]{
-            new Ingrediente("Cebolla",1),
-            new Ingrediente("Carne",1.2),
-            new Ingrediente("Chorizo",0.5),
-            new Ingrediente("Champiñiones",1.7),
-            new Ingrediente("Queso de Cabra",2),
-            new Ingrediente("Pimiento",0.5),
-            new Ingrediente("Pepperoni",0.7),
-            new Ingrediente("4 Quesos",2.1),
-            new Ingrediente("Salchicha",1),
-    };
 
     private double precioBase;
     private double precioTotal;
     private double ingredientesTam;
-    private ArrayList<Ingrediente> ingredientesPizza;
+    private RealmList<Ingrediente> ingredientesPizza;
     private String tamPizza;
+    private ArrayList<Ingrediente> ingredientes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -68,7 +61,9 @@ public class ActivityIngredientes extends AppCompatActivity implements View.OnCl
         setContentView(R.layout.activity_ingredientes);
         //INICIALIZA
         tamPizza="";
-        ingredientesPizza= new ArrayList<Ingrediente>();
+        //LISTA DE INGREDIENTES REALM
+        ingredientes = MainActivity.rc.cargarIngredientes();
+        ingredientesPizza= new RealmList<Ingrediente>();
         findViewById(R.id.cajaNombre).clearFocus();
 
         //AGREGAR MASAS
@@ -120,16 +115,16 @@ public class ActivityIngredientes extends AppCompatActivity implements View.OnCl
                     if(box.getId()==chkBox[i])
                     {
                         checkIncompatible(box);
-                        precioIngrediente = ingredientes[i].getPrecio()*ingredientesTam;
+                        precioIngrediente = ingredientes.get(i).getPrecio()*ingredientesTam;
                         if(b)
                         {
                             precioTotal+=precioIngrediente;
-                            ingredientesPizza.add(ingredientes[i]);
+                            ingredientesPizza.add(ingredientes.get(i));
                         }
                         else
                         {
                             precioTotal-=precioIngrediente;
-                            ingredientesPizza.remove(ingredientes[i]);
+                            ingredientesPizza.remove(ingredientes.get(i));
                         }
                     }
                 }
@@ -167,7 +162,7 @@ public class ActivityIngredientes extends AppCompatActivity implements View.OnCl
             Pizza p = crearPizza();
             if(p!=null)
             {
-                Pedido.pizzas.add(p);
+                PedidoInter.pizzas.add(p);
 
                 Intent i = new Intent(this,PedidoActivity.class);
                 i.putExtra("repetir",false);
@@ -187,7 +182,7 @@ public class ActivityIngredientes extends AppCompatActivity implements View.OnCl
             if(p!=null)
             {
                 Toast.makeText(this, "Pizza añadida", Toast.LENGTH_SHORT).show();
-                Pedido.pizzas.add(p);
+                PedidoInter.pizzas.add(p);
 
                 Intent i = new Intent(getApplicationContext(),ActivityPizza.class);
                 i.putExtra("menu",false);

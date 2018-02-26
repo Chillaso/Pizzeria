@@ -2,20 +2,22 @@ package com.lamkastudios.pizzeria.Modelo;
 //Created by chillaso All rights reserved.
 
 
+import java.util.ArrayList;
+
 import io.realm.RealmList;
 import io.realm.RealmObject;
 
-public class Pedido extends RealmObject{
+public class Menu extends RealmObject{
 
     private RealmList<Pizza> pizzas;
-    private Usuario user;
+    private RealmList<Integer> imagenes;
 
-    public Pedido() {
+    public Menu() {
     }
 
-    public Pedido(RealmList<Pizza> pizzas, Usuario user) {
+    public Menu(RealmList<Pizza> pizzas, RealmList<Integer> imagenes) {
         this.pizzas = pizzas;
-        this.user = user;
+        this.imagenes = imagenes;
     }
 
     public RealmList<Pizza> getPizzas() {
@@ -26,11 +28,11 @@ public class Pedido extends RealmObject{
         this.pizzas = pizzas;
     }
 
-    public Usuario getUser() {
-        return user;
+    public RealmList<Integer> getImagenes() {
+        return imagenes;
     }
 
-    public void setUser(Usuario user) {
-        this.user = user;
+    public void setImagenes(RealmList<Integer> imagenes) {
+        this.imagenes = imagenes;
     }
 }

@@ -1,134 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.ContentFrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.lamkastudios.pizzeria.vista.MainActivity"
-    tools:layout_editor_absoluteY="25dp">
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-
-    <ImageView
-        android:id="@+id/fondo"
+    <include
+        layout="@layout/app_bar_main"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:alpha="0.7"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/pizzafondo" />
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main"
+        app:menu="@menu/activity_main_drawer" />
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ImageView
-            android:id="@+id/btnPizza"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/txtPizza"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/custompizza" />
-
-        <ImageView
-            android:id="@+id/btnMenu"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/txtMenu"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtPizza"
-            app:srcCompat="@drawable/menu" />
-
-        <ImageView
-            android:id="@+id/btnRepetir"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@+id/txtRepetir"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtMenu"
-            app:srcCompat="@drawable/repeatpizza" />
-
-        <TextView
-            android:id="@+id/txtPizza"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="casual"
-            android:text="PIZZA A LA CARTA"
-            android:textAlignment="center"
-            android:textColor="@color/colorTexto"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/btnMenu"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnPizza"
-            tools:text="@string/txtPizza" />
-
-        <TextView
-            android:id="@+id/txtMenu"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="casual"
-            android:text="MENÚ DE PIZZAS"
-            android:textAlignment="center"
-            android:textColor="@color/colorTexto"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/btnRepetir"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnMenu"
-            tools:text="@string/txtMenu" />
-
-        <TextView
-            android:id="@+id/txtRepetir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="44dp"
-            android:fontFamily="casual"
-            android:text="REPETIR PEDIDO"
-            android:textAlignment="center"
-            android:textColor="@color/colorTexto"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnRepetir"
-            tools:text="@string/txtRepetir" />
-
-        <ImageButton
-            android:id="@+id/btnAjustes"
-            style="@android:style/Widget.Holo.Light.ImageButton"
-            android:layout_width="46dp"
-            android:layout_height="36dp"
-            android:layout_marginRight="16dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="centerCrop"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/propertiesicon" />
-
-        <ImageButton
-            android:id="@+id/btnUser"
-            style="@android:style/Widget.Holo.Light.ImageButton"
-            android:layout_width="46dp"
-            android:layout_height="36dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="16dp"
-            android:scaleType="centerCrop"
-            android:tint="@color/colorTexto"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/user" />
-
-    </android.support.constraint.ConstraintLayout>
-
-
-
-</android.support.v7.widget.ContentFrameLayout>
+</android.support.v4.widget.DrawerLayout>

@@ -1,13 +1,15 @@
 package com.lamkastudios.pizzeria.Modelo;
 
-/**
- * Created by ardark on 11/7/17.
- */
 
-public class Ingrediente
-{
+import io.realm.RealmObject;
+
+public class Ingrediente extends RealmObject {
+
     private String nombre;
     private double precio;
+
+    public Ingrediente() {
+    }
 
     public Ingrediente(String nombre, double precio) {
         this.nombre = nombre;

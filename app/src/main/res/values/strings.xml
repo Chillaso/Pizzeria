@@ -67,4 +67,10 @@
     <string name="user">Usuario</string>
     <string name="pass">Contraseña</string>
     <string name="aceptar">Aceptar</string>
+    <string name="title_activity_main2">Pizzeria di Carlo</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
 </resources>

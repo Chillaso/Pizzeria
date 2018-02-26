@@ -16,7 +16,8 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import com.lamkastudios.pizzeria.Modelo.Pedido
+import com.lamkastudios.pizzeria.DAO.GuardarPedido
+import com.lamkastudios.pizzeria.Modelo.PedidoInter
 import com.lamkastudios.pizzeria.Modelo.Pizza
 import com.lamkastudios.pizzeria.R
 import kotlinx.android.synthetic.main.activity_pago.*
@@ -48,7 +49,10 @@ class PagoActivity : AppCompatActivity(), OnMapReadyCallback, Runnable{
             //GUARDAR PIZZA
             val pref :SharedPreferences = getSharedPreferences("datos",0)
             val editor :SharedPreferences.Editor = pref.edit()
-            val p: Pizza = Pedido.pizzas.get(Pedido.pizzas.size-1)
+            val p: Pizza = PedidoInter.pizzas.get(PedidoInter.pizzas.size-1)
+
+            //GUARDAMOS LAS PIZZAS DEL PEDIDO EN LA BD Y LO HACEMOS EN UN ASYNTASK
+            GuardarPedido(PedidoInter.pizzas).execute()
 
             editor.putString("nombre",p.name)
             editor.putString("masa",p.masa)

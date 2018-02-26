@@ -18,9 +18,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.lamkastudios.pizzeria.Modelo.Ingrediente;
-import com.lamkastudios.pizzeria.Modelo.Pedido;
+import com.lamkastudios.pizzeria.Modelo.Menu;
+import com.lamkastudios.pizzeria.Modelo.PedidoInter;
 import com.lamkastudios.pizzeria.Modelo.Pizza;
 import com.lamkastudios.pizzeria.R;
+
+import java.util.ArrayList;
 
 public class MenuActivity extends AppCompatActivity {
 
@@ -68,7 +71,7 @@ public class MenuActivity extends AppCompatActivity {
         private static final int[] nombresPizza = new int[]{
                 R.string.pepperoni,
                 R.string.quesos,
-                R.string.estaciones
+                    R.string.estaciones
         };
 
         private String[] masas;
@@ -101,6 +104,7 @@ public class MenuActivity extends AppCompatActivity {
         private double precioTotal;
         private String tamPizza;
         private int posicion;
+        private Menu menu;
 
         //Constructor vacío por que es un Singleton, sólo queremos 1 instancia de cada fragment
         public PlaceholderFragment() {
@@ -133,6 +137,9 @@ public class MenuActivity extends AppCompatActivity {
             //Obtengo los argumentos pasados por la instancia anterior
             Bundle args = getArguments();
 
+            //Cargamos el menu
+            menu = MainActivity.rc.cargarMenu();
+
             //Obtenemos los datos de donde nos encontramos
             posicion = args.getInt(ARG_SECTION_NUMBER)-1;
             precioTotal=0;
@@ -154,6 +161,11 @@ public class MenuActivity extends AppCompatActivity {
             ((TextView)rootView.findViewById(R.id.precio)).setText(String.valueOf(precioTotal));
             ((ImageView)rootView.findViewById(R.id.imgPizza)).setImageResource(imgPizza[posicion]);
 
+            ((TextView)rootView.findViewById(R.id.txtNombrePizza)).setText(menu.getPizzas().get(posicion).getName());
+            ((TextView)rootView.findViewById(R.id.txtDescripcion)).setText(menu.getPizzas().get(posicion).getDescripcion());
+            ((TextView)rootView.findViewById(R.id.precio)).setText(String.valueOf(menu.getPizzas().get(posicion).getPrecio()));
+            ((ImageView)rootView.findViewById(R.id.imgPizza)).setImageResource(menu.getImagenes().get(posicion));
+
             //LISTENER
             rootView.findViewById(R.id.btnAñadirPizza).setOnClickListener(AñadirListener);
             rootView.findViewById(R.id.btnConfirmar).setOnClickListener(AñadirListener);
@@ -166,8 +178,9 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View b)
             {
                 String nombre = getActivity().getResources().getString(nombresPizza[posicion]);
-                Pizza p = new Pizza(nombre,masas[posicion],nombreTams[posicion],precioTotal,ingredientes[posicion]);
-                Pedido.pizzas.add(p);
+                //Pizza p = new Pizza(nombre,masas[posicion],nombreTams[posicion],precioTotal,ingredientes[posicion]);
+                Pizza p = new Pizza(nombre,masas[posicion],nombreTams[posicion],precioTotal,menu.getPizzas().get(posicion).getIngredientes());
+                PedidoInter.pizzas.add(p);
                 Toast.makeText(getActivity().getApplicationContext(), "Pizza añadida", Toast.LENGTH_SHORT).show();
                 if(b.getId()==R.id.btnAñadirPizza)
                 {

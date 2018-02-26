@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.lamkastudios.pizzeria.Modelo.Usuario;
 import com.lamkastudios.pizzeria.R;
 
 public class ConfigActivity extends AppCompatActivity implements View.OnClickListener{
@@ -51,18 +52,14 @@ public class ConfigActivity extends AppCompatActivity implements View.OnClickLis
     {
         if(b.getId()==R.id.btnGuardar)
         {
-
-            SharedPreferences pref = getSharedPreferences("datos",0);
-            SharedPreferences.Editor editor = pref.edit();
-
             //GUARDAR USUARIO
             EditText usuario = (EditText) findViewById(R.id.txtUsuario);
             EditText password = (EditText) findViewById(R.id.txtPass);
 
-            editor.putString("usuario",usuario.getText().toString());
-            editor.putString("contraseña",password.getText().toString());
+            //INSERCCIÓN DEL USUARIO EN LA BD
+            Usuario u = new Usuario(usuario.getText().toString(),password.getText().toString());
+            MainActivity.rc.createOrUpdateUsuario(u);
 
-            editor.apply();
             Toast.makeText(this, "Preferencias actualizadas", Toast.LENGTH_SHORT).show();
 
             startActivity(new Intent(getApplicationContext(),MainActivity.class));

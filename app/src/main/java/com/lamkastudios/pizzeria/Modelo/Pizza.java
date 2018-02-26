@@ -3,15 +3,31 @@ package com.lamkastudios.pizzeria.Modelo;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class Pizza
+import io.realm.RealmList;
+import io.realm.RealmObject;
+
+public class Pizza extends RealmObject
 {
     private String name;
     private String masa;
     private String tam;
     private double precio;
-    private ArrayList<Ingrediente> ingredientes;
+    private int descripcion;
+    private RealmList<Ingrediente> ingredientes;
 
-    public Pizza(String name, String masa, String tam, double precio, ArrayList<Ingrediente> ingredientes)
+    public Pizza() {
+    }
+
+    public Pizza(String name, String masa, String tam, double precio, int descripcion, RealmList<Ingrediente> ingredientes) {
+        this.name = name;
+        this.masa = masa;
+        this.tam = tam;
+        this.precio = precio;
+        this.descripcion = descripcion;
+        this.ingredientes = ingredientes;
+    }
+
+    public Pizza(String name, String masa, String tam, double precio, RealmList<Ingrediente> ingredientes)
     {
         this.name = name;
         this.masa = masa;
@@ -20,15 +36,12 @@ public class Pizza
         this.ingredientes = ingredientes;
     }
 
-    public Pizza(String name, String masa, String tam, double precio, Ingrediente[] ingredientes)
-    {
-        this.name = name;
-        this.masa = masa;
-        this.tam = tam;
-        this.precio = precio;
+    public int getDescripcion() {
+        return descripcion;
+    }
 
-        this.ingredientes=new ArrayList<>();
-        this.ingredientes.addAll(Arrays.asList(ingredientes));
+    public void setDescripcion(int descripcion) {
+        this.descripcion = descripcion;
     }
 
     public String getName() {
@@ -63,11 +76,11 @@ public class Pizza
         this.precio = precio;
     }
 
-    public ArrayList<Ingrediente> getIngredientes() {
+    public RealmList<Ingrediente> getIngredientes() {
         return ingredientes;
     }
 
-    public void setIngredientes(ArrayList<Ingrediente> ingredientes) {
+    public void setIngredientes(RealmList<Ingrediente> ingredientes) {
         this.ingredientes = ingredientes;
     }
 

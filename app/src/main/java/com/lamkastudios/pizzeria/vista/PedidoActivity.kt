@@ -7,9 +7,10 @@ import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import com.lamkastudios.pizzeria.Modelo.Ingrediente
-import com.lamkastudios.pizzeria.Modelo.Pedido
+import com.lamkastudios.pizzeria.Modelo.PedidoInter
 import com.lamkastudios.pizzeria.Modelo.Pizza
 import com.lamkastudios.pizzeria.R
+import io.realm.RealmList
 import kotlinx.android.synthetic.main.activity_pedido.*
 
 class PedidoActivity : AppCompatActivity(), AdapterView.OnItemClickListener{
@@ -28,20 +29,20 @@ class PedidoActivity : AppCompatActivity(), AdapterView.OnItemClickListener{
             val tam =getSharedPreferences("datos",0).getString("tam","")
             val precio = getSharedPreferences("datos",0).getFloat("precio",0f)
 
-            val p :Pizza = Pizza(nombre,masa,tam,precio.toDouble(), ArrayList<Ingrediente>())
-            Pedido.ultPizza.add(p)
-            Pedido.pizzas.add(p)
-            CargarDatos(Pedido.ultPizza)
+            val p :Pizza = Pizza(nombre,masa,tam,precio.toDouble(), RealmList<Ingrediente>())
+            PedidoInter.ultPizza.add(p)
+            PedidoInter.pizzas.add(p)
+            CargarDatos(PedidoInter.ultPizza)
         }
         else {
-            CargarDatos(Pedido.pizzas)
+            CargarDatos(PedidoInter.pizzas)
         }
 
         //LISTENERS
         btnPagar.setOnClickListener({startActivity(Intent(this, PagoActivity::class.java))})
         btnCancelar.setOnClickListener({
             //Reiniciamos
-            Pedido.pizzas.removeAll(Pedido.pizzas)
+            PedidoInter.pizzas.removeAll(PedidoInter.pizzas)
             startActivity(Intent(this, MainActivity::class.java))})
 
         listaPizzas.onItemClickListener=this
@@ -49,7 +50,7 @@ class PedidoActivity : AppCompatActivity(), AdapterView.OnItemClickListener{
 
     //EVENTO LISTA
     override fun onItemClick(p0: AdapterView<*>?, item: View, pos: Int, p3: Long) {
-        for(pizza in Pedido.pizzas)
+        for(pizza in PedidoInter.pizzas)
         {
             if(nombre.get(pos).equals(pizza.name))
             {

@@ -8,12 +8,12 @@ public class IncompatibilidadException extends Exception {
 
     private String mensaje;
 
-    IncompatibilidadException()
+    public IncompatibilidadException()
     {
         mensaje="Ingredientes incompatibles";
     }
 
-    IncompatibilidadException(String mensaje)
+    public IncompatibilidadException(String mensaje)
     {
         this.mensaje=mensaje;
     }
